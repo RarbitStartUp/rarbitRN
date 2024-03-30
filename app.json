@@ -1,0 +1,11 @@
+{
+  "name": "rarbit",
+  "displayName": "rarbit",
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "85f0aa8e-3f6b-4421-9349-43ad9da2b279"
+      }
+    }
+  }
+}

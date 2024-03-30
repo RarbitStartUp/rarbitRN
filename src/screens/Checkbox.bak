@@ -1,0 +1,39 @@
+import React from 'react';
+import {Text, View, ScrollView} from 'react-native';
+import {useRoute} from '@react-navigation/native';
+
+export default function Checkbox() {
+  // Access the route object to get the passed data
+  const route = useRoute();
+  console.log('route:', route);
+  const checklist = route.params.responseData.checklist;
+  console.log('checklist:', checklist);
+
+  return (
+    <ScrollView contentContainerStyle={{flexGrow: 1}}>
+      <View>
+        {checklist.map((data, index) => (
+          <View key={index}>
+            <Text>Timestamp: {data.timestamp}</Text>
+            <Text>Objects:</Text>
+            <View>
+              {Object.entries(data.objects).map(([object, value]) => (
+                <Text key={object}>
+                  {object}: {value ? 'true' : 'false'}
+                </Text>
+              ))}
+            </View>
+            <Text>Actions:</Text>
+            <View>
+              {Object.entries(data.actions).map(([action, value]) => (
+                <Text key={action}>
+                  {action}: {value ? 'true' : 'false'}
+                </Text>
+              ))}
+            </View>
+          </View>
+        ))}
+      </View>
+    </ScrollView>
+  );
+}
